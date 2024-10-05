@@ -1,0 +1,72 @@
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Github, Linkedin, Mail } from "lucide-react"
+
+export default function Portfolio() {
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="p-6 bg-primary text-primary-foreground">
+        <h1 className="text-3xl font-bold">Your Name</h1>
+        <p className="text-xl">Web Developer</p>
+      </header>
+
+      <main className="container mx-auto px-4 py-8">
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4">About Me</h2>
+          <p className="text-lg">
+            I'm a passionate web developer with experience in React, Next.js, and Node.js. I love creating
+            user-friendly and efficient web applications.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3].map((project) => (
+              <Card key={project}>
+                <CardHeader>
+                  <CardTitle>Project {project}</CardTitle>
+                  <CardDescription>A short description of the project</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p>Technologies used: React, Next.js, Tailwind CSS</p>
+                  <Button className="mt-4">View Project</Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4">Skills</h2>
+          <div className="flex flex-wrap gap-2">
+            {["React", "Next.js", "JavaScript", "TypeScript", "Node.js", "Tailwind CSS"].map((skill) => (
+              <span key={skill} className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Contact</h2>
+          <div className="flex space-x-4">
+            <Button variant="outline" size="icon">
+              <Mail className="h-4 w-4" />
+            </Button>
+            <Button variant="outline" size="icon">
+              <Github className="h-4 w-4" />
+            </Button>
+            <Button variant="outline" size="icon">
+              <Linkedin className="h-4 w-4" />
+            </Button>
+          </div>
+        </section>
+      </main>
+
+      <footer className="p-6 bg-primary text-primary-foreground mt-12">
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+      </footer>
+    </div>
+  )
+}
